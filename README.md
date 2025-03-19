@@ -1,2 +1,2 @@
 # Leetcode
-collectoin of past leetcode solutions
+collection of past leetcode solutions
