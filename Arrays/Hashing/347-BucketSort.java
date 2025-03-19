@@ -1,27 +1,31 @@
-package Arrays.Hashing;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-class topKFrequent327 {
+class Solution {
     public int[] topKFrequent(int[] nums, int k) {
 
-        var freq = new HashMap<Integer, Integer>();
+        int max = nums[0];
+        int min = nums[0];
 
         for (int i : nums) {
-            freq.put(i, freq.getOrDefault(i, 0) + 1);
+            max = Math.max(max, i);
+            min = Math.min(min, i);
         }
 
+        var freq = new int[max - min + 1];
         List<Integer>[] res = new ArrayList[nums.length + 1];
+        var output = new int[k];
 
-        for (int key : freq.keySet()) {
-            if (res[freq.get(key)] == null) {
-                res[freq.get(key)] = new ArrayList<>();
-            }
-            res[freq.get(key)].add(key);
+        for (int i : nums) {
+            freq[i - min]++;
         }
 
-        var output = new int[k];
+        for (int i = 0; i < freq.length; i++) {
+            if (res[freq[i]] == null) {
+                res[freq[i]] = new ArrayList<>();
+            }
+            res[freq[i]].add(i + min);
+        }
 
         int freqCount = 0;
 
@@ -35,11 +39,11 @@ class topKFrequent327 {
                 }
             }
             if (freqCount == k) {
-                return output;
+                break;
             }
 
         }
-        return new int[] { 0, 0 };
+        return output;
 
     }
 }
