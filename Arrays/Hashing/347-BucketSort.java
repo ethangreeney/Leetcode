@@ -1,8 +1,9 @@
+package Arrays.Hashing;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class Solution {
+class topKFrequent327 {
     public int[] topKFrequent(int[] nums, int k) {
 
         var freq = new HashMap<Integer, Integer>();
