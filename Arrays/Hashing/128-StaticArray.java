@@ -27,7 +27,7 @@ class Solution {
             if (res[rightPointer] == true) {
                 maxLength = Math.max(rightPointer - leftPointer + 1, maxLength);
             } else {
-                leftPointer = rightPointer;
+                leftPointer = rightPointer + 1;
             }
         }
 
