@@ -9,13 +9,16 @@ class Solution {
         int r = s.length() - 1;
 
         for (; l < r; l++, r--) {
-            while (!Character.isLetterOrDigit(s.charAt(l))) {
+
+            while (l < r && !Character.isLetterOrDigit(s.charAt(l))) {
                 l++;
             }
-            while (!Character.isLetterOrDigit(s.charAt(r))) {
+
+            while (l < r && !Character.isLetterOrDigit(s.charAt(r))) {
                 r--;
             }
-            if (Character.toLowerCase(l) != Character.toLowerCase(r)) {
+
+            if (l < r && Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))) {
                 return false;
             }
         }
