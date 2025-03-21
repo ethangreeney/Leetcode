@@ -1,4 +1,5 @@
-// [valid-palindrome]: https://leetcode.com/problems/valid-palindrome/
+// question link: https://leetcode.com/problems/valid-palindrome/
+
 class Solution {
     public boolean isPalindrome(String s) {
 
