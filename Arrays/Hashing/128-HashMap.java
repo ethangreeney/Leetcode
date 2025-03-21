@@ -16,13 +16,19 @@ class Solution {
         int maxLen = 1;
 
         for (int i : numsSet) {
-            int currentLen = 1;
-            while (numsSet.contains(--i)) {
-                currentLen++;
-            }
-            maxLen = Math.max(maxLen, currentLen);
-        }
 
+            if (!numsSet.contains(i - 1)) {
+
+                int currentLen = 1;
+
+                while (numsSet.contains(++i)) {
+                    currentLen++;
+                }
+
+                maxLen = Math.max(maxLen, currentLen);
+            }
+
+        }
         return maxLen;
 
     }
