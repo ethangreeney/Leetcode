@@ -13,6 +13,7 @@ class Solution {
         }
 
         var freq = new int[max - min + 1];
+        @SuppressWarnings("unchecked")
         List<Integer>[] res = new ArrayList[nums.length + 1];
         var output = new int[k];
 
