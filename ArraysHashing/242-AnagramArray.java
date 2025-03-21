@@ -1,5 +1,7 @@
 // problem link https://leetcode.com/problems/valid-anagram/description/
 
+package ArraysHashing;
+
 class Solution {
     public boolean isAnagram(String s, String t) {
 

@@ -1,5 +1,7 @@
 // problem link: https://leetcode.com/problems/longest-consecutive-sequence/description/
 
+package ArraysHashing;
+
 import java.util.HashSet;
 
 class Solution {

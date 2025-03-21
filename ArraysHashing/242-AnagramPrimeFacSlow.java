@@ -1,4 +1,6 @@
-// problem link https://leetcode.com/problems/valid-anagram/description/
+// problem link: https://leetcode.com/problems/group-anagrams/description/
+
+package ArraysHashing;
 
 import java.math.BigInteger;
 

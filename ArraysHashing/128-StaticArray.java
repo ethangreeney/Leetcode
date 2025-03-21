@@ -1,5 +1,7 @@
 // problem link: https://leetcode.com/problems/longest-consecutive-sequence/description/
 
+package ArraysHashing;
+
 class Solution {
     public static int longestConsecutive(int[] nums) {
 
