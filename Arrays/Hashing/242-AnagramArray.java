@@ -1,8 +1,4 @@
-// ![problem link:](https://leetcode.com/problems/valid-anagram/description/)
-/*  
-![problem link:](https://leetcode.com/problems/valid-anagram/description/) 
- * 
-*/
+// problem link https://leetcode.com/problems/valid-anagram/description/
 
 class Solution {
     public boolean isAnagram(String s, String t) {
