@@ -1,3 +1,5 @@
+// problem link: https://leetcode.com/problems/longest-consecutive-sequence/description/
+
 import java.util.HashSet;
 
 class Solution {
