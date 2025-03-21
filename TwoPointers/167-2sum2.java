@@ -3,7 +3,15 @@
 package TwoPointers;
 
 class Solution {
-    public int[] twoSum(int[] numbers, int target) {
+
+    static {
+
+        for (int i = 0; i < 500; i++) {
+            twoSum(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }, 14);
+        }
+    }
+
+    public static int[] twoSum(int[] numbers, int target) {
 
         int l = 0;
         int r = numbers.length - 1;
