@@ -3,6 +3,7 @@
 package TwoPointers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,17 +17,19 @@ class Solution {
             var res = new HashMap<Integer, Integer>();
 
             for (int j = i + 1; j < nums.length; j++) {
+
                 if (res.containsKey(-nums[i] - nums[j])) {
-                    List<Integer> validTriplet = new ArrayList<>();
-                    validTriplet.add(nums[i]);
-                    validTriplet.add(nums[j]);
-                    validTriplet.add(-nums[i] - nums[j]);
-                    validTriplet.sort(null);
-                    if (!output.contains(validTriplet)) {
-                        output.add(validTriplet);
+
+                    if (!output.contains(Arrays.asList(nums[i], nums[j], -nums[i] - nums[j]))) {
+
+                        output.add(Arrays.asList(nums[i], nums[j], -nums[i] - nums[j]));
+
                     }
+
                 } else {
+
                     res.put(nums[j], j);
+
                 }
             }
 
