@@ -20,32 +20,29 @@ class ListNode {
 }
 
 class Solution {
-    ListNode newHead;
-
     public ListNode reverseList(ListNode head) {
 
         if (head == null || head.next == null) {
             return head;
         }
 
-        reverseList(null, head);
-        return newHead;
+        return reverseList(null, head);
 
     }
 
-    // 0 - 1 - 2 - 3 - 4
+    private ListNode reverseList(ListNode head, ListNode headNext) {
 
-    private void reverseList(ListNode head, ListNode headNext) {
+        ListNode newHead;
 
         if (headNext.next != null) {
-            reverseList(headNext, headNext.next);
-        }
-
-        if (headNext.next == null) {
+            newHead = reverseList(headNext, headNext.next);
+        } else {
             newHead = headNext;
         }
 
         headNext.next = head;
+
+        return newHead;
 
     }
 
