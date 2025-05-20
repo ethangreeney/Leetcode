@@ -1,27 +1,27 @@
 package RandomStuff;
 
-class ListNode {
+class Random {
     int val;
-    ListNode next;
+    Random next;
 
-    ListNode() {
+    Random() {
     }
 
-    ListNode(int val) {
+    Random(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    Random(int val, Random next) {
         this.val = val;
         this.next = next;
     }
 }
 
 class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public Random mergeTwoLists(Random list1, Random list2) {
 
-        ListNode dummyNode = new ListNode();
-        ListNode current = dummyNode;
+        Random dummyNode = new Random();
+        Random current = dummyNode;
 
         while (current != null && list1 != null && list2 != null) {
             if (list1.val < list2.val) {
