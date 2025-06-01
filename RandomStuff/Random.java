@@ -44,3 +44,68 @@ class Solution {
 
     }
 }
+
+class Solution2 {
+
+    public static void persistence(int repititionCount) {
+
+        long[] maxPersistence = { 0, 0 };
+        long[] currentPersistence;
+
+        for (int i = 1; i <= repititionCount; i++) {
+            currentPersistence = calculatePersistence(i);
+            maxPersistence = currentPersistence[0] > maxPersistence[0] ? currentPersistence : maxPersistence;
+        }
+
+        printPersistence(maxPersistence[1]);
+
+    }
+
+    private static long[] calculatePersistence(long i) {
+
+        long originalI = i;
+
+        int noOfTurns = 0;
+
+        while (String.valueOf(i).length() > 1) {
+
+            char[] iStringArr = String.valueOf(i).toCharArray();
+
+            long productOfDigits = 1;
+
+            for (int y = 0; y < iStringArr.length; y++) {
+                productOfDigits *= Integer.parseInt(String.valueOf(iStringArr[y]));
+            }
+
+            i = productOfDigits;
+            noOfTurns++;
+        }
+
+        return new long[] { noOfTurns, originalI };
+    }
+
+    private static void printPersistence(long i) {
+
+        System.out.println(i);
+
+        while (String.valueOf(i).length() > 1) {
+
+            char[] iStringArr = String.valueOf(i).toCharArray();
+
+            long productOfDigits = 1;
+
+            for (int y = 0; y < iStringArr.length; y++) {
+                productOfDigits *= Integer.parseInt(String.valueOf(iStringArr[y]));
+            }
+
+            i = productOfDigits;
+            System.out.println(i);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        persistence(1000000000);
+    }
+
+}
