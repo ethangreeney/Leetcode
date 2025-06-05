@@ -17,7 +17,7 @@ class Solution {
 
     private void inOrderHelper(TreeNode root) {
 
-        if (root == null) {
+        if (root == null || res != null) {
             return;
         }
 
