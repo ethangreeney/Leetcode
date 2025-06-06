@@ -70,3 +70,28 @@ class ImprovedSpaceComplxityFarMorePerformant { // 0 ms Beats 100%
     }
 
 }
+
+class PrevSolutionMoreConcice { // 0 ms Beats 100%
+
+    private Integer lastSeen;
+
+    boolean isValidBST(TreeNode root) {
+
+        if (root == null) {
+            return true;
+        }
+
+        if (isValidBST(root.left) == false) {
+            return false;
+        }
+
+        if (lastSeen != null && lastSeen >= root.val) {
+            return false;
+        }
+
+        lastSeen = root.val;
+
+        return isValidBST(root.right);
+    }
+
+}
