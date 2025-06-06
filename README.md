@@ -34,4 +34,4 @@ Below is a list of problems I've solved, categorized by their primary topic (der
 | Valid Sudoku                                 | [Link](https://leetcode.com/problems/valid-sudoku/)                | ArraysHashing      |
 | Single Number (Alternative Array Approach)   | [Link](https://leetcode.com/problems/single-number/)               | RandomStuff        |
 
-*Note: Some problems might have multiple solution approaches within the repository.*
+*Note: Some problems might have multiple solution approaches within the repository, representing improvments on previous solutions*
