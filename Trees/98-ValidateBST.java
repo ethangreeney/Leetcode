@@ -5,7 +5,7 @@ package Trees;
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution { // 195 ms Beats 2.28%
+class NaiveSolution { // 195 ms Beats 2.28%
 
     private List<Integer> treeAsList = new ArrayList<Integer>();
 
@@ -32,6 +32,41 @@ class Solution { // 195 ms Beats 2.28%
         isValidBST(root.left);
         treeAsList.add(root.val);
         isValidBST(root.right);
+    }
+
+}
+
+class ImprovedSpaceComplxityFarMorePerformant { // 0 ms Beats 100%
+
+    private Integer lastSeen;
+    private boolean valid = true;
+
+    boolean isValidBST(TreeNode root) {
+
+        inOrderHelper(root);
+        return valid;
+
+    }
+
+    private void inOrderHelper(TreeNode root) {
+
+        if (root == null || valid == false) {
+            return;
+        }
+
+        inOrderHelper(root.left);
+
+        if (lastSeen == null) {
+            lastSeen = root.val;
+        } else {
+            if (root.val <= lastSeen) {
+                valid = false;
+                return;
+            }
+            lastSeen = root.val;
+        }
+
+        inOrderHelper(root.right);
     }
 
 }
