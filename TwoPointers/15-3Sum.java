@@ -2,6 +2,7 @@
 
 package TwoPointers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -34,6 +35,44 @@ class FisrtSolution { // 1498ms beats 5%
         }
 
         return result.stream().toList();
+
+    }
+}
+
+class ImprovedPointerLogic {// WORK IN PROGRESS
+    public List<List<Integer>> threeSum(int[] nums) {
+
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+
+        Arrays.sort(nums);
+
+        for (int i = 2; i < nums.length; i++) {
+            while (i + 1 < nums.length && nums[i] == nums[i + 1]) {
+                i++;
+            }
+
+            int l = 0;
+            int r = i - 1;
+
+            while (l < r) {
+
+                while (nums[l] + nums[r] + nums[i] < 0 && l < r) {
+                    l++;
+                }
+                while (nums[l] + nums[r] + nums[i] > 0 && r > l) {
+                    r--;
+                }
+
+                if (r > l && nums[l] + nums[r] + nums[i] == 0) {
+                    result.add(Arrays.asList(nums[l], nums[r], nums[i]));
+                    r--;
+                    l++;
+                }
+            }
+
+        }
+
+        return result;
 
     }
 }
