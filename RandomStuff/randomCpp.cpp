@@ -1,11 +1,11 @@
+#include <iostream>
 #include <string>
-class test {
- public:
-  void main() {
-    int x = 10, y = 20;
+int main() {
+  int x = 10, y = 20;
 
-    std::string = "Ethan";
+  std::string name = "Ethan";
 
-    std::cout
-  }
-};
+  std::cout << x << y << name << std::endl;
+
+  return 0;
+}
