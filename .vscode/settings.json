@@ -1,24 +1,41 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
     "files.associations": {
-        "vector": "cpp"
+        "vector": "cpp",
+        "cctype": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "cstring": "cpp",
+        "cwchar": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "string": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "xmemory": "cpp",
+        "xstring": "cpp",
+        "xtr1common": "cpp",
+        "xutility": "cpp"
     },
-    
     // ... your other settings may be here ...
-
     // Enable format on save for all languages
     "editor.formatOnSave": true,
-
     // --- C++ Specific Settings ---
     "[cpp]": {
         // Tell VS Code which formatter to use for C++ files.
         // The C/C++ extension provides this formatter ID.
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-
     // This tells the C/C++ extension to use the clang-format style.
     // It will automatically find the clang-format you installed.
     "C_Cpp.clang_format_style": "file", // This is the best option, see below
     "C_Cpp.clang_format_fallbackStyle": "Google" // Use Google style if no .clang-format file is found
-
 }
