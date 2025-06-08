@@ -39,7 +39,7 @@ class FisrtSolution { // 1498ms beats 5%
     }
 }
 
-class ImprovedPointerLogic {// WORK IN PROGRESS
+class ImprovedPointerLogic {// 22ms beats 99.64%
     public List<List<Integer>> threeSum(int[] nums) {
 
         List<List<Integer>> result = new ArrayList<List<Integer>>();
@@ -65,6 +65,11 @@ class ImprovedPointerLogic {// WORK IN PROGRESS
 
                 if (r > l && nums[l] + nums[r] + nums[i] == 0) {
                     result.add(Arrays.asList(nums[l], nums[r], nums[i]));
+
+                    while (l < r && nums[l] == nums[l + 1])
+                        l++;
+                    while (l < r && nums[r] == nums[r - 1])
+                        r--;
                     r--;
                     l++;
                 }
