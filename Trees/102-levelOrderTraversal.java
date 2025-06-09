@@ -46,3 +46,36 @@ class Solution { // 1ms beats 89%
         return result;
     }
 }
+
+class preOrderDFS { // 0 ms beats 100%
+    public List<List<Integer>> levelOrder(TreeNode root) {
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        if (root == null) {
+            return result;
+        }
+
+        dfsHelper(root, 0, result);
+
+        return result;
+
+    }
+
+    private void dfsHelper(TreeNode currentNode, int height, List<List<Integer>> result) {
+
+        if (currentNode == null) {
+            return;
+        }
+
+        if (result.size() == height) {
+            result.add(new ArrayList<>());
+        }
+
+        result.get(height).add(currentNode.val);
+
+        dfsHelper(currentNode.left, height + 1, result);
+        dfsHelper(currentNode.right, height + 1, result);
+
+    }
+}
