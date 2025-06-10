@@ -4,7 +4,7 @@ package RandomStuff;
 
 import java.util.Random;
 
-class Solution { // 2210ms beats 5%
+class QuickSortRandomPivot { // 2210ms beats 5%
 
     public int[] sortArray(int[] nums) {
 
@@ -46,4 +46,43 @@ class Solution { // 2210ms beats 5%
         nums[r] = nums[l];
         nums[l] = temp;
     }
+}
+
+class countingSort { // 4ms beats 99.2%
+
+    public int[] sortArray(int[] nums) {
+
+        if (nums.length < 2) {
+            return nums;
+        }
+
+        int min = nums[0];
+        int max = nums[1];
+
+        for (int i : nums) {
+            min = Math.min(min, i);
+            max = Math.max(max, i);
+        }
+
+        int[] bins = new int[max - min + 1];
+
+        for (int i : nums) {
+            bins[i - min]++;
+        }
+
+        int index = 0;
+
+        for (int i = 0; i < bins.length; i++) {
+
+            while (bins[i] != 0) {
+                nums[index++] = i + min;
+                bins[i]--;
+            }
+
+        }
+
+        return nums;
+
+    }
+
 }
