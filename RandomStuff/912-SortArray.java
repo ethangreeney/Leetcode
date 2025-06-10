@@ -1,5 +1,8 @@
 package RandomStuff;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 // Problem link: https://leetcode.com/problems/sort-an-array/
 
 import java.util.Random;
@@ -48,7 +51,7 @@ class QuickSortRandomPivot { // 2210ms beats 5%
     }
 }
 
-class countingSort { // 4ms beats 99.2%
+class CountingSort { // 4ms beats 99.2%
 
     public int[] sortArray(int[] nums) {
 
@@ -78,6 +81,47 @@ class countingSort { // 4ms beats 99.2%
                 nums[index++] = i + min;
                 bins[i]--;
             }
+
+        }
+
+        return nums;
+
+    }
+
+}
+
+class RadixSort { // Only works with positive values
+
+    public int[] sortArray(int[] nums) {
+
+        if (nums.length < 2) {
+            return nums;
+        }
+
+        int max = nums[0];
+
+        for (int i : nums) {
+            max = Math.max(max, i);
+        }
+
+        for (int exponent = 1; max / exponent > 0; exponent *= 10) {
+
+            int[] bins = new int[10];
+            int[] output = new int[nums.length];
+
+            for (int i = 0; i < nums.length; i++) {
+                bins[nums[i] / exponent % 10]++;
+            }
+
+            for (int i = 1; i < 10; i++) {
+                bins[i] += bins[i - 1];
+            }
+
+            for (int i = nums.length - 1; i >= 0; i--) {
+                output[--bins[nums[i] / exponent % 10]] = nums[i];
+            }
+
+            nums = output;
 
         }
 
