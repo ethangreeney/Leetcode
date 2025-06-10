@@ -1,9 +1,6 @@
-package RandomStuff;
-
-import java.util.LinkedList;
-import java.util.Queue;
-
 // Problem link: https://leetcode.com/problems/sort-an-array/
+
+package RandomStuff;
 
 import java.util.Random;
 
