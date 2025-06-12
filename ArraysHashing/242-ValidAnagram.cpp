@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-class Solution {
+class Solution { // 0ms beats 100%
  public:
   bool isAnagram(std::string s, std::string t) {
 
@@ -11,11 +11,11 @@ class Solution {
       return false;
     }
 
-    std::vector<int> charFreq(26,0);
+    int charFreq[26] = {}; // C style array for stack allocation
 
     for (int i = 0; i < s.length(); i++) {
-        charFreq[s[i]%26]++;
-        charFreq[t[i]%26]--;
+        charFreq[s[i] - 'a']++;
+        charFreq[t[i] - 'a']--;
     }
     
     for(int i : charFreq){
