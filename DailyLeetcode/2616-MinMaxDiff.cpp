@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cmath>
 
-class Greedy // 32ms beats 21%
+class Greedy // 24ms beats 68%
 {
 public:
     int minimizeMax(std::vector<int> &nums, int p)
@@ -17,7 +17,7 @@ public:
         std::sort(nums.begin(), nums.end());
 
         int low = 0;
-        int high = nums[nums.size() - 1];
+        int high = nums[nums.size() - 1] - nums[0];
         int ans = high;
 
         while (low <= high)
