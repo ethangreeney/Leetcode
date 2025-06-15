@@ -3,6 +3,52 @@
 
 #include <vector>
 
+class CleanerSolution {
+  int maxDiff(int num) {
+    std::string numString = std::to_string(num);
+    char charToReplace = ' ';
+
+    for (char c : numString) {
+      if (c != '9') {
+        charToReplace = c;
+        break;
+      }
+    }
+
+    if (charToReplace != ' ') {
+      std::replace(numString.begin(), numString.end(), charToReplace, '9');
+    }
+
+    int max = std::stoi(numString);
+
+    numString = std::to_string(num);
+    charToReplace = ' ';
+    char replaceWith = ' ';
+
+    if (numString[0] == '1') {
+      for (char c : numString) {
+        if (c != '0' && c != '1') {
+          charToReplace = c;
+          replaceWith = '0';
+          break;
+        }
+      }
+    } else {
+      charToReplace = numString[0];
+      replaceWith = '1';
+    }
+
+    if (charToReplace != ' ') {
+      std::replace(numString.begin(), numString.end(), charToReplace,
+                   replaceWith);
+    }
+
+    int min = std::stoi(numString);
+
+    return max - min;
+  }
+};
+
 class Solution {
  public:
   int maxDiff(int num) {  // 0ms beats 100%
