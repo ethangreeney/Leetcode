@@ -1,10 +1,11 @@
 // problem link: https://leetcode.com/problems/reverse-integer/
 
+#include <climits>
 #include <cmath>
 
 class Solution {  // 2ms beats 38%
  public:
-  int reverse(const int x) {
+  int naiveSolution(const int x) {
     if (x == 0) {
       return 0;
     }
@@ -27,5 +28,20 @@ class Solution {  // 2ms beats 38%
         xReversed < INT32_MIN || xReversed > INT32_MAX ? 0 : xReversed;
 
     return toReturn;
+  }
+};
+
+class OptimisedSolution {  // 0ms beats 100%
+  int reverseOptimised(int x) {
+    int reversed = 0;
+    while (x) {
+      int lastDigit = x % 10;
+      if (reversed > INT_MAX / 10 || reversed < INT_MIN / 10) {
+        return 0;
+      }
+      reversed = reversed * 10 + lastDigit;
+      x /= 10;
+    }
+    return reversed;
   }
 };
