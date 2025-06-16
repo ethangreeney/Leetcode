@@ -3,18 +3,20 @@
 #include <unordered_map>
 #include <vector>
 
-class Solution {  // 2m beats 76%
+class Solution {  // 1ms beats 80%
  public:
   std::vector<int> twoSum(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> map;
 
     for (int i = 0; i < nums.size(); i++) {
-      if (map.count(target - nums[i]) > 0) {
-        return {map[target - nums[i]], i};
+      int complement = target - nums[i];
+      auto it = map.find(complement);
+
+      if (it != map.end()) {
+        return {it->second, i};
       }
       map[nums[i]] = i;
     }
-
-    return {-1, -1};
+    return {};
   }
 };
