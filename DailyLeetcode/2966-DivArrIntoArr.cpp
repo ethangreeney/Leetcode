@@ -3,10 +3,29 @@
 
 #include <vector>
 
+class OptimisedSolution {  // 29ms beats 99%
+ public:
+  std::vector<std::vector<int>> divideArray(std::vector<int>& nums, int k) {
+    std::sort(nums.begin(), nums.end());
+    std::vector<std::vector<int>> result;
+
+    result.reserve(nums.size() / 3);
+
+    for (int i = 0; i < nums.size() - 2; i += 3) {
+      if (nums[i + 2] - nums[i] <= k) {
+        result.push_back({nums[i], nums[i + 1], nums[i + 2]});
+      } else {
+        return {};
+      }
+    }
+    return result;
+  }
+};
+
 class Solution {  // 49ms beats 56%
  public:
   std::vector<std::vector<int>> divideArray(std::vector<int>& nums, int k) {
-        std::sort(nums.begin(), nums.end());
+    std::sort(nums.begin(), nums.end());
     std::vector<std::vector<int>> result;
 
     for (int i = 0; i < nums.size() - 2; i += 3) {
