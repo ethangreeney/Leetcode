@@ -4,7 +4,31 @@
 #include <unordered_map>
 #include <vector>
 
-class Solution {  // 35ms beats 34%
+class OptimisedSolution {  // 16ms beats 68%
+ public:
+  int findLHS(std::vector<int>& nums) {
+    if (nums.size() == 1) {
+      return 0;
+    }
+
+    std::unordered_map<int, int> freq;
+
+    for (int i : nums) {
+      freq[i]++;
+    }
+
+    int maxSub = 0;
+
+    for (const auto& [key, value] : freq) {
+      if (freq.count(key - 1)) {
+        maxSub = std::max(maxSub, value + freq[key - 1]);
+      }
+    }
+    return maxSub;
+  }
+};
+
+class NaiveSolution {  // 35ms beats 34%
  public:
   int findLHS(std::vector<int>& nums) {
     if (nums.size() == 1) {
