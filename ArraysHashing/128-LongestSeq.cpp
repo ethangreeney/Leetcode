@@ -10,9 +10,9 @@ class SolutionMoreIdiomatic {  // 79ms beats 70%
     int maxSeq = 0;
 
     for (const auto& i : numsSet) {
-      if (!numsSet.count(i - 1)) {
+      if (!numsSet.contains(i - 1)) {
         int seq = 0;
-        while (numsSet.count(i + seq)) {
+        while (numsSet.contains(i + seq)) {
           seq++;
         }
         maxSeq = std::max(maxSeq, seq);
