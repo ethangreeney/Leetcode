@@ -9,10 +9,9 @@ class Solution {  // 43ms beats 74% (best O(n) time possible)
     hashSet.reserve(nums.size());
 
     for (int i : nums) {
-      if (hashSet.contains(i)) {
+      if (!hashSet.insert(i).second) {
         return true;
       }
-      hashSet.insert(i);
     }
     return false;
   }
