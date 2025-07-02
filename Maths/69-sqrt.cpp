@@ -1,5 +1,14 @@
 // problem link: https://leetcode.com/problems/sqrtx
 
+class NewtonsMethod {  // 0ms beats 100%
+ public:
+  int mySqrt(int x) {
+    long y = x;
+    while (y * y > x) y = (y + x / y) / 2;
+    return y;
+  }
+};
+
 class OptimisedSolution {  // 0ms beats 100%
  public:
   int mySqrt(int x) {
