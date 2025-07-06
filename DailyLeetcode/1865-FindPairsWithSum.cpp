@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <vector>
 
-class FindSumPairs {  // 81ms Beats 76.83 %
+class FindSumPairs {  // 8ms Beats 77.63 %
  public:
   std::vector<int> nums1;
   std::vector<int> nums2;
@@ -29,9 +29,9 @@ class FindSumPairs {  // 81ms Beats 76.83 %
     int count = 0;
 
     for (const int& i : nums1) {
-      int complement = tot - i;
-      if (nums2_freq.count(complement)) {
-        count += nums2_freq[complement];
+      auto complement = nums2_freq.find(tot - i);
+      if (complement != nums2_freq.end()) {
+        count += complement->second;
       }
     }
 
