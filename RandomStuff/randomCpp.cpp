@@ -3,25 +3,13 @@
 
 class Solution {
  public:
-  int findLHS(std::vector<int> &nums) {
-    if (nums.size() == 1) {
-      return 0;
+  uint32_t reverseBits(uint32_t n) {
+    uint32_t res = 0;
+    while (n) {
+      res <<= 1;
+      res &= n & 1;
+      n >>= 1;
     }
-
-    std::unordered_map<int, int> freq;
-
-    for (int i : nums) {
-      freq[i]++;
-    }
-
-    int maxSub = 0;
-
-    for (const auto &[key, value] : freq) {
-      if (freq.count(key - 1)) {
-        maxSub = std::max(maxSub, freq[key] + freq[key - 1]);
-      }
-    }
-
-    return maxSub;
+    return res;
   }
 };
