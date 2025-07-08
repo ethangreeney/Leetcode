@@ -1,7 +1,7 @@
 // problem link: https://leetcode.com/problems/generate-parentheses/
 
 // passing the string by reference was far more efficient than passing by value.
-// Passing the current string by value with + made is so a full copy of the
+// Passing the current string by value with + made it so a full copy of the
 // string had to be made every time, degrading performance significantly.
 
 #include <string>
