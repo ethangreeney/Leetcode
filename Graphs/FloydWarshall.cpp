@@ -8,9 +8,10 @@ int main() {
   cin.tie(nullptr);
 
   const long long INF = (1LL << 60);
-
+  int i;
   int n;
-  if (!(cin >> n)) return 0;
+  if (!(cin >> i)) return 0;
+  cin >> n;
 
   vector<vector<long long>> d(n, vector<long long>(n));
   for (int i = 0; i < n; ++i) {
@@ -24,7 +25,7 @@ int main() {
     }
   }
 
-  for (int k = 0; k < n; ++k)
+  for (int k = 0; k < i; ++k)
     for (int i = 0; i < n; ++i)
       for (int j = 0; j < n; ++j) {
         if (d[i][k] == INF || d[k][j] == INF) continue;
