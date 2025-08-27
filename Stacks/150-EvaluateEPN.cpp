@@ -5,6 +5,7 @@
 // expensive process that increased runtime greatly.
 
 #include <stack>
+#include<iostream>
 
 class Solution {  // 0ms beats 100%
  public:
@@ -18,23 +19,23 @@ class Solution {  // 0ms beats 100%
         int first_operand = stack.top();
         stack.pop();
 
-        if (token == "+")
-          stack.push(first_operand + second_operand);
-        else if (token == "-")
-          stack.push(first_operand - second_operand);
-        else if (token == "/")
-          stack.push(first_operand / second_operand);
-        else if (token == "*")
-          stack.push(first_operand * second_operand);
-      } else {
-        stack.push(std::stoi(token));
-      }
+        if (token == "+") stack.push(first_operand + second_operand);
+        else if (token == "-" )stack.push(first_operand - second_operand);
+        else if (token == "/") stack.push(first_operand / second_operand);
+        else if (token == "*" )stack.push(first_operand * second_operand);
+      } else stack.push(std::stoi(token));
     }
     return stack.top();
   }
 };
 
-class Solution {  // 301ms beats 5%
+int main(){
+    Solution myRPN;
+    std::vector<std::string> tokens = {"2", "3", "+", "4", "*"};
+    std::cout << myRPN.evalRPN(tokens) << std::endl;
+}
+
+class NaiveSolution {  // 301ms beats 5%
  public:
   int evalRPN(std::vector<std::string>& tokens) {
     std::stack<int> stack;
