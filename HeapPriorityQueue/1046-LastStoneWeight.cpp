@@ -31,7 +31,7 @@ class Solution {  // 0ms beats 100%
   }
 };
 
-class Solution {  // 0ms beats 100%
+class SolutionNaive {  // 0ms beats 100%
  public:
   int lastStoneWeight(std::vector<int>& stones) {
     std::priority_queue<int> maxHeap;
